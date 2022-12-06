@@ -17,6 +17,6 @@ provider "azurerm" {
 }
 
 provider "kubernetes" {
-  config_path = "/root/.kube/kubeconfig-${var.clusterName}.yml"
+  config_path = azurerm_kubernetes_cluster.default.kube_config_raw
   # Configuration options
 }

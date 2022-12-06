@@ -18,9 +18,10 @@ output "kubernetes_cluster_name" {
 #   value = azurerm_kubernetes_cluster.default.kube_config.0.client_certificate
 # }
 
-# output "kube_config" {
-#   value = azurerm_kubernetes_cluster.default.kube_config_raw
-# }
+output "kube_config" {
+  value = azurerm_kubernetes_cluster.default.kube_config_raw
+  sensitive = true
+}
 
 #output "cluster_username" {
 #  value = azurerm_kubernetes_cluster.default.kube_config.0.username
@@ -29,3 +30,4 @@ output "kubernetes_cluster_name" {
 #output "cluster_password" {
 #  value = azurerm_kubernetes_cluster.default.kube_config.0.password
 #}
+

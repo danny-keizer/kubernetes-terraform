@@ -27,3 +27,28 @@ variable "nsName" {
   description = "Application namespace"
   type = string
 }
+
+variable "appName" {
+  description = "Application name"
+  type = string
+}
+
+variable "cpuRequest" {
+  description = "cpuRequest"
+  type = string
+}
+
+variable "cpuLimit" {
+  description = "cpuLimit"
+  type = string
+}
+
+variable "ramRequest" {
+  description = "ramRequest"
+  type = string
+}
+
+variable "ramLimit" {
+  description = "ramLimit"
+  type = string
+}

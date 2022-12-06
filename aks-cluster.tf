@@ -17,6 +17,7 @@ resource "azurerm_kubernetes_cluster" "default" {
     node_count          = var.nodes
     vm_size             = var.sku
     os_disk_size_gb     = var.diskSize
+    enable_host_encryption = true
     type                = "VirtualMachineScaleSets"
     zones               = ["1", "2"]
     enable_auto_scaling = false
@@ -36,6 +37,6 @@ resource "azurerm_kubernetes_cluster" "default" {
 
 resource "local_file" "kubeconfig" {
   depends_on   = [azurerm_kubernetes_cluster.default]
-  filename     = "/root/.kube/kubeconfig-${var.clusterName}.yml"
+  filename     = "${path.cwd}/${var.clusterName}.yml"
   content      = azurerm_kubernetes_cluster.default.kube_config_raw
 }
